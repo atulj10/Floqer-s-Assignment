@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import TableComponent from './Components/Table';
+import { loadData } from './Helper/loadData';
+import { Divider } from 'antd';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const parsedData = await loadData();
+        setData(parsedData);
+        // console.log(parsedData)
+      } catch (error) {
+        console.error('Error loading CSV data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Divider><h1 className='text-4xl my-10'>Main Table</h1></Divider>
+      {data == null ? <h1>processing</h1> : <TableComponent data={data} />}
     </div>
   );
-}
+};
 
 export default App;
