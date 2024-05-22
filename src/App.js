@@ -18,12 +18,13 @@ const App = () => {
     };
 
     fetchData();
+    console.log(data);
   }, []);
 
   return (
     <div>
       <Divider><h1 className='text-4xl my-10'>Main Table</h1></Divider>
-      {data == null ? <h1>processing</h1> : <TableComponent data={data} />}
+      {!data ? <h1>processing</h1> : <TableComponent data={data} />}
     </div>
   );
 };
