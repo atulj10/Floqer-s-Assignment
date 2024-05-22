@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.17.2",
+    "axios": "^1.7.2",
     "fs": "^0.0.1-security",
     "papaparse": "^5.4.1",
     "react": "^18.3.1",

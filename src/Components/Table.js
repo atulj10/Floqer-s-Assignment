@@ -79,7 +79,7 @@ const TableComponent = ({ data }) => {
   }, [data]);
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex cursor-pointer flex-col'>
       <Table
         dataSource={filteredData}
         columns={columns}
@@ -89,9 +89,9 @@ const TableComponent = ({ data }) => {
         })}
       />
       <Graph data={filteredData} />
-      <div className={`model z-50 ${visible ? "visible" : ""} `}>
+      <div className={`model z-50 cur ${visible ? "visible" : ""} `}>
         <AdditionalTable  careerData={careerData} year={year}/>
-        <button className='bg-white border-solid border-2 text-black border-black p-1 px-4 hover:bg-red-700 transition-all hover:text-white mt-10' onClick={() => setVisible(false)}>Close</button>
+        <button className='bg-white border-solid border-2 text-black border-black p-1 px-4 hover:border-red-700 rounded-lg hover:bg-red-700 transition-all hover:text-white mt-10' onClick={() => setVisible(false)}>Close</button>
       </div>
     </div>
   );
